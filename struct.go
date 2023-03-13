@@ -100,7 +100,8 @@ func rCustom(ra *rand.Rand, t reflect.Type, v reflect.Value, tag string) error {
 
 func rStruct(ra *rand.Rand, t reflect.Type, v reflect.Value, tag string) error {
 	// Check if tag exists, if so run custom function
-	if t.Name() != "" && tag != "" {
+	// if t.Name() != "" && tag != "" {
+	if tag != "" {
 		return rCustom(ra, t, v, tag)
 	}
 
@@ -195,7 +196,8 @@ func rSlice(ra *rand.Rand, t reflect.Type, v reflect.Value, tag string, size int
 	}
 
 	// Check if tag exists, if so run custom function
-	if t.Name() != "" && tag != "" {
+	// if t.Name() != "" && tag != "" {
+	if tag != "" {
 		// Check to see if custom function works if not continue to normal loop of values
 		err := rCustom(ra, t, v, tag)
 		if err == nil {
@@ -244,7 +246,8 @@ func rMap(ra *rand.Rand, t reflect.Type, v reflect.Value, tag string, size int) 
 	}
 
 	// Check if tag exists, if so run custom function
-	if t.Name() != "" && tag != "" {
+	// if t.Name() != "" && tag != "" {
+	if tag != "" {
 		return rCustom(ra, t, v, tag)
 	}
 
